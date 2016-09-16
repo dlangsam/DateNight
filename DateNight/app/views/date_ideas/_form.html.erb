@@ -1,0 +1,23 @@
+<%= form_for(date_idea) do |f| %>
+  <% if date_idea.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(date_idea.errors.count, "error") %> prohibited this date_idea from being saved:</h2>
+
+      <ul>
+      <% date_idea.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <div class = "col-md-3">
+      <%= f.label :name%>
+    </div>
+    <div class = "col-md-9">
+      <%= f.text_field :name, class: "form-control"%>
+    </div>
+    <%= f.submit %>
+  </div>
+<% end %>
