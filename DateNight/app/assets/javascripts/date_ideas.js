@@ -3,7 +3,16 @@
 $(document).on("turbolinks:load", function(){
 	$('.js-search').on('click', function(e){
 		e.preventDefault();
-		console.log("Button clicked");
+		var zip = $('.js-zip').val();
+		$.ajax({
+			url: "https://api.yelp.com/v3/businesses/search" + this.zip,
+			success: function(response){
+				console.log(response);
+			},
+			error: function(error){
+				console.log("Error gettig data from yelp");
+			}				
+		});	
 	});
 
 

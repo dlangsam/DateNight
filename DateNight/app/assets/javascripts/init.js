@@ -19,8 +19,6 @@ $(document).on("turbolinks:load", function(){
 		console.log("Browser doesn't have geolation");
 	}
 	DateNightApp.init();
-	//if (/^\/categories/.test(window.location.pathname) { // do stuff here }`
-	//FIXME!!!!!!
 	
 
 	function handleError(error){
