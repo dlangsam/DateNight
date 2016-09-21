@@ -26,6 +26,7 @@ gem 'material_icons'
 gem 'geocoder'
 gem 'sprockets'
 gem 'sprockets-es6', require: "sprockets/es6"
+gem 'yelp', require: 'yelp'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
