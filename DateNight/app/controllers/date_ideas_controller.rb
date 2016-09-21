@@ -21,10 +21,7 @@ class DateIdeasController < ApplicationController
   def edit
   end
 
-  def search
-     parameters = { term: params[:term], limit: 16 }
-    render json: Yelp.client.search('San Francisco')
-  end
+ 
 
   # POST /date_ideas
   # POST /date_ideas.json

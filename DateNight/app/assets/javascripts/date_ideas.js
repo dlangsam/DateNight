@@ -4,8 +4,9 @@ $(document).on("turbolinks:load", function(){
 	$('.js-search').on('click', function(e){
 		e.preventDefault();
 		var zip = $('.js-zip').val();
+		var apiUrl = "/api/date_ideas/" + "?zip=" + zip
 		$.ajax({
-			url: "https://api.yelp.com/v3/businesses/search" + this.zip,
+			url: apiUrl,
 			success: function(response){
 				console.log(response);
 			},
