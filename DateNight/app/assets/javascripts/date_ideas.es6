@@ -4,12 +4,10 @@ $(document).on("turbolinks:load", function(){
 	$('.js-search').on('click', function(e){
 		e.preventDefault();
 		var zip = $('.js-zip').val();
-		var apiUrl = "/api/date_ideas/" + "?zip=" + zip
+		var apiUrl = "/api/date_ideas/" + "?zip=" + zip + "&term=" + "food"
 		$.ajax({
 			url: apiUrl,
-			success: function(response){
-				console.log(response);
-			},
+			success: loadSearchResults,
 			error: function(error){
 				console.log("Error gettig data from yelp");
 			}				
@@ -17,4 +15,17 @@ $(document).on("turbolinks:load", function(){
 	});
 
 
+
 })
+
+function loadSearchResults(response){
+	var $dateList = $('.js-date-list');
+	$dateList.empty();
+	var html = ""
+	response.businesses.forEach(function(business){
+		html += `<li>${business.name}</li>`;
+	});
+	$dateList.append(html);
+
+	console.log(response);
+}
