@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "date_ideas#index"
+  root to: "date_ideas#home"
   get "/search", to: "date_ideas#search"
   resources :date_ideas
   scope "/api" do

@@ -1,6 +1,7 @@
 class DateIdeasController < ApplicationController
   before_action :set_date_idea, only: [:show, :edit, :update, :destroy]
-
+  def home
+  end
   # GET /date_ideas
   # GET /date_ideas.json
   def index
