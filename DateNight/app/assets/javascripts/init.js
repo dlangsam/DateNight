@@ -8,7 +8,7 @@ DateNightApp.init = function(){
 $(document).on("turbolinks:load", function(){
 
 	if("geolocation" in navigator){
-		console.log("Broswer has geolocation");
+		console.log("Browser has geolocation");
 		var options = {timeout: 10000000};
 		navigator.geolocation.getCurrentPosition(function(position){}, handleError, options);
 	}else{
