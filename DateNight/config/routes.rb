@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root to: "date_ideas#home"
   get "/search", to: "date_ideas#search"
   resources :date_ideas
