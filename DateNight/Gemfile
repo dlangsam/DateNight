@@ -29,6 +29,7 @@ gem 'sprockets-es6', require: "sprockets/es6"
 gem 'yelp', require: 'yelp'
 gem 'figaro'
 gem 'devise'
+gem 'omniauth-facebook'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
