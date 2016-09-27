@@ -1,11 +1,22 @@
 class DateIdea < ApplicationRecord
+	has_many :date_idea_user
+	has_many :users, through: "date_idea_user"
 	def self.search(location, params)
 		Yelp.client.search(location, params)
 	end
-	def self.random_search(location, params)
+	def self.random_search(location, params, user)
 		results = Yelp.client.search(location, params)
-		num_of_businesses = results.businesses.length
-		results.businesses.shuffle!.slice!(0,num_of_businesses - 3)
+		results.businesses.shuffle!
+		users_dates = user.date_ideas
+		dates_found = 0
+		results.businesses.select! do |b|
+			the_date = DateIdea.find_by(yelp_id: b.id)
+			result = the_date == nil || !users_dates.include?(the_date)
+			dates_found += result ? 1: 0
+			break if dates_found == 3
+			result	
+		end
+		results.businesses.slice!(3,results.businesses.length)
 		results
 
 	end

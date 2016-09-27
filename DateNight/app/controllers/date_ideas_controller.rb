@@ -1,11 +1,14 @@
 class DateIdeasController < ApplicationController
   before_action :set_date_idea, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:index, :create, :update]
+  skip_before_filter :verify_authenticity_token 
   def home
   end
   # GET /date_ideas
   # GET /date_ideas.json
   def index
-    @date_ideas = DateIdea.all
+    @current_user = current_user
+    @date_ideas = current_user.date_ideas
   end
 
   # GET /date_ideas/1
@@ -38,6 +41,7 @@ class DateIdeasController < ApplicationController
         format.json { render json: @date_idea.errors, status: :unprocessable_entity }
       end
     end
+    current_user.date_ideas.push(@date_idea)
   end
 
   # PATCH/PUT /date_ideas/1
@@ -72,6 +76,6 @@ class DateIdeasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def date_idea_params
-      params.fetch(:date_idea).permit(:name)
+      params.fetch(:date_idea).permit(:name, :yelp_id)
     end
 end

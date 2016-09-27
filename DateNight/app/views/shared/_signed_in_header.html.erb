@@ -1,0 +1,13 @@
+
+
+
+<li class="dropdown user-dropdown">
+    <a href="#" class="dropdown-toggle btn btn-header" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+    <i class="material-icons md-36 account-logo">account_circle</i><br><class ><%= current_user.first_name %><span class="caret"></span></class></a>
+    <ul class="dropdown-menu">
+       
+        <li><a href="/users/edit">My Profile</a></li>
+         <li><a href="<%=user_date_ideas_url(current_user)%>">Dates</a></li>
+	    <li><a href="/users/sign_out" data-method="delete">Sign Out</a><li>
+    </ul>
+</li>

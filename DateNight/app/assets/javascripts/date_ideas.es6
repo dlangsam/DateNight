@@ -8,15 +8,45 @@ $(document).on("turbolinks:load", function(){
 		$.ajax({
 			url: apiUrl,
 			success: loadSearchResults,
-			error: function(error){
-				console.log("Error gettig data from yelp");
-			}				
+			error: logError
 		});	
 	});
+	$('.js-date-spots').on('click', '.js-add-date-to-user', function(e){
+		e.preventDefault();
+		var loginButton = $('.js-login');
+		if(loginButton.text() == " Sign In"){
+			$('.js-login-modal').modal("show");
+		}
+		var button =  e.currentTarget;
+		var yelpId =  $(button).data("id");
+		var name =  $(button).data("name").data;
+		$(button).addClass("clicked");
+		$.ajax({
+		 	method: "post",  
+		 	url: "/api/date_ideas",
+		 	data: {date_idea: {yelp_id: yelpId, name: name} },
+		 	success: function(response){
+		 		updateSavedPlaces(response);
+		 	},
+		 	failure: logError
+		 });
+
+	})
 
 
 
 })
+function logError(response){
+	console.log(response);
+}
+function updateSavedPlaces(response){
+	console.log(response);
+	var button = $(".btn.js-add-date-to-user.clicked")	
+
+	var savedButton = `<button class = "btn js-add-date-to-user" data-id="${response.yelp_id}" data-name ="${response.name}">Saved! </button>`
+	button.parent().append(savedButton);
+	button.remove();
+}
 
 function loadSearchResults(response){
 	var $dateList = $('.js-date-list');
@@ -54,9 +84,12 @@ function addDate(dateHolder, dateSpot){
                                 
                             </div>
                             </a>
-                             
+                            <button class = "btn js-add-date-to-user" data-id="${dateSpot.id}" data-name ="${dateSpot.name}">Save Date </button>
                         </div>
                     </div>`;
+   
     dateHolder.append(dateHtml)                
 
 }
+
+

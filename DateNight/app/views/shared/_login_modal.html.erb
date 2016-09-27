@@ -1,0 +1,53 @@
+<div class="modal fade js-modal js-login-modal">
+  <div class="login modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header modal-login-header">
+        <!-- Close button -->
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span>&times;</span>
+        </button>
+
+        <h2>Date Night</h2>
+      </div>
+      	<div class = "login-body">
+      		<h3>Log in</h3>
+			<a href = "<%=user_facebook_omniauth_authorize_path%>"><img src = "/assets/fb-login-button.png" class = "fb-login-button"></a>
+			
+			<p class = "divider">or</p>
+		   <div class="modal-body modal-login-body">
+				<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+		  <div class="field login">
+		   
+		    <%= f.email_field :email, autofocus: true, placeholder: "e-mail address" %>
+		  </div>		
+
+		  <div class="field login">
+		 
+		    <%= f.password_field :password, autocomplete: "off", placeholder: "password" %>
+		  </div>		
+
+		  <% if devise_mapping.rememberable? -%>
+		    <div class="field">
+		      <%= f.check_box :remember_me %>
+		      <%= f.label :remember_me %>
+		    </div>
+		  <% end -%>		
+			
+		  <div class="actions">
+		    <%= f.submit "Log in", class: "login-btn btn" %>
+		  </div>
+		  <div>
+		  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+			<p>Need an account? <br>
+			 <%= link_to "Sign up", new_user_registration_url, class: "btn" %><br />
+			</p>
+			</div>
+  			
+
+		<% end %>
+		</div>		
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
