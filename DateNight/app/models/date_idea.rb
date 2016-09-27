@@ -7,7 +7,8 @@ class DateIdea < ApplicationRecord
 	def self.random_search(location, params, user)
 		results = Yelp.client.search(location, params)
 		results.businesses.shuffle!
-		users_dates = user.date_ideas
+		if user
+	
 		dates_found = 0
 		results.businesses.select! do |b|
 			the_date = DateIdea.find_by(yelp_id: b.id)
@@ -16,10 +17,15 @@ class DateIdea < ApplicationRecord
 			break if dates_found == 3
 			result	
 		end
+		end
+
+
+
 		results.businesses.slice!(3,results.businesses.length)
 		results
 
 	end
+
 
 
 

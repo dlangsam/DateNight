@@ -19,12 +19,20 @@ $(document).on("turbolinks:load", function(){
 		}
 		var button =  e.currentTarget;
 		var yelpId =  $(button).data("id");
-		var name =  $(button).data("name").data;
+		var name =  $(button).data("name");
+		var city =  $(button).data("city");
+		
+		var lat =  $(button).data("lat");
+		var long =  $(button).data("long");
+		var image =  $(button).data("image");
+		console.log(image);
 		$(button).addClass("clicked");
 		$.ajax({
 		 	method: "post",  
 		 	url: "/api/date_ideas",
-		 	data: {date_idea: {yelp_id: yelpId, name: name} },
+		 	data: {date_idea: {yelp_id: yelpId, name: name,
+		 	 city: city, latitude: lat, longitude: long, image_file: image}}, 
+		 	 //latitude: lat, longitude: long, image_file: image} },
 		 	success: function(response){
 		 		updateSavedPlaces(response);
 		 	},
@@ -84,7 +92,10 @@ function addDate(dateHolder, dateSpot){
                                 
                             </div>
                             </a>
-                            <button class = "btn js-add-date-to-user" data-id="${dateSpot.id}" data-name ="${dateSpot.name}">Save Date </button>
+                            <button class = "btn js-add-date-to-user" data-id="${dateSpot.id}" data-name ="${dateSpot.name}"
+							data-city="${dateSpot.location.city}" data-lat ="${dateSpot.location.coordinate.latitude}"
+							data-long ="${dateSpot.location.coordinate.longitude}"" data-image = "${dateSpot.image_url}"
+                            >Save Date </button>
                         </div>
                     </div>`;
    

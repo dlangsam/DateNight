@@ -9,6 +9,7 @@ class DateIdeasController < ApplicationController
   def index
     @current_user = current_user
     @date_ideas = current_user.date_ideas
+
   end
 
   # GET /date_ideas/1
