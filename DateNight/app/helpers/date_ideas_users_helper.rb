@@ -1,0 +1,2 @@
+module DateIdeasUsersHelper
+end
