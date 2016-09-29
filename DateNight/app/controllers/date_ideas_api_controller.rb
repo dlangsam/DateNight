@@ -1,6 +1,6 @@
 class DateIdeasApiController < ApplicationController	
   def search
-     parameters = { term: params[:term]}
+     parameters = { term: params[:term], type: params[:type]}
      location = params[:zip]
      #call model to serach for date places
     user = current_user != nil ? current_user : nil

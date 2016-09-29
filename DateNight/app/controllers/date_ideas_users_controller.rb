@@ -12,7 +12,6 @@ class DateIdeasUsersController < ApplicationController
       		format.html { redirect_to user_date_ideas_url(current_user), notice: 'Date idea was successfully destroyed.' }
       		format.json { head :no_content }
     	end
-    	#redirect_to user_date_ideas_url(current_user)
     def show
     	@date_idea = DateIdea.find(id: params[:id])
     end

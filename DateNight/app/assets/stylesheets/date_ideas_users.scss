@@ -2,14 +2,32 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .business-photo{
-	height: 150px;
-	width: 150px;
+	height: 100px;
+	width: 100px;
 	margin-left: auto;
 	margin-right: auto;
 }
+.business-photo-container{
+	display: inline-block;
+	float: left;
+}
+.business-info{
+	display: inline-block;
+	float: left;
+	margin: 5px;
+	width: 250px;
+
+}
 .user-date{
 	border: 2px solid #ddd;;
+	width: 380px;
+	height: 115px;
 	padding: 5px;
 	margin: 5px;
-	width: 30%;
+
+
+	
+}
+.delete-date{
+	float: right;
 }

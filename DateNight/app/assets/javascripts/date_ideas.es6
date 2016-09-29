@@ -4,7 +4,9 @@ $(document).on("turbolinks:load", function(){
 	$('.js-search').on('click', function(e){
 		e.preventDefault();
 		var zip = $('.js-zip').val();
-		var apiUrl = "/api/date_ideas/" + "?zip=" + zip + "&term=" + "food"
+		var dateType = $('#js-date-type').val();
+		console.log()
+		var apiUrl = "/api/date_ideas/" + "?zip=" + zip + "&type=" + dateType
 		$.ajax({
 			url: apiUrl,
 			success: loadSearchResults,

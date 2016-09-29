@@ -12,15 +12,21 @@
      <div class="row">
   <% end %>
      <div class="col-md-4 user-date">
-                <a href="<%=date_idea_url(date_idea)%>">
+              <div class = "business-photo-container">
+                <a href="<%=user_date_idea_url(@current_user, date_idea)%>">
                     <img class="img-responsive business-photo" src="<%=date_idea.image_file%>" alt="Picture of restaurant">
                 </a>
+              </div>
+              <div class = "business-info">
                 <h4>
-                    <a href="<%=date_idea_url(date_idea)%>"><%=date_idea.name%></a>
+                    <a href="<%=user_date_idea_url(@current_user, date_idea)%>"><%=date_idea.name%></a>
                     
                 </h4>
                 <p><%= date_idea.city %></p>
-                <%= link_to 'Delete', user_date_idea_url(@current_user, date_idea), method: :delete, data: {confirm: 'Are you sure?'} %>
+                <div class="delete-date">
+                <a href= "<%=user_date_idea_url(@current_user, date_idea)%>" data-confirm="Are you sure?" data-method="delete"><span class="glyphicon glyphicon-remove"></span>Delete</a>
+                </div>
+                </div>
               
             </div>
 

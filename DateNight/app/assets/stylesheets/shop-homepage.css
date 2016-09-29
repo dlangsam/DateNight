@@ -54,3 +54,12 @@ body {
 footer {
     margin: 50px 0;
 }
+.address-btn{
+    display: inline;
+    width: 76%;
+}
+.search-btn{
+    display: inline;
+    width: 20%;
+    float: right;
+}
