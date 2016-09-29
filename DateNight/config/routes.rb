@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "/search", to: "date_ideas#search"
   resources :date_ideas, only: [:show]
   resources :users, only: [] do
-  	resources :date_ideas,  controller: "date_ideas_users", only: [:index]
+  	resources :date_ideas,  controller: "date_ideas_users", only: [:index, :destroy, :show]
   end
   scope "/api" do
   	get "/date_ideas", to: "date_ideas_api#search"

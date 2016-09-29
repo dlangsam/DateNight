@@ -11,16 +11,16 @@
   <% if index % 3 == 0 %>
      <div class="row">
   <% end %>
-     <div class="col-md-4 portfolio-item">
+     <div class="col-md-4 user-date">
                 <a href="<%=date_idea_url(date_idea)%>">
-                    <img class="img-responsive" src="<%=date_idea.image_file%>" alt="Picture of restaurant">
+                    <img class="img-responsive business-photo" src="<%=date_idea.image_file%>" alt="Picture of restaurant">
                 </a>
                 <h4>
                     <a href="<%=date_idea_url(date_idea)%>"><%=date_idea.name%></a>
                     
                 </h4>
                 <p><%= date_idea.city %></p>
-                <!-- <a href = "/users/<%=current_user.id%>/date_ideas/<%=date_idea.id%>" data-method:="delete" class = "btn"> Remove Date </a> -->
+                <%= link_to 'Delete', user_date_idea_url(@current_user, date_idea), method: :delete, data: {confirm: 'Are you sure?'} %>
               
             </div>
 
