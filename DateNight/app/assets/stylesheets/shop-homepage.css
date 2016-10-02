@@ -47,7 +47,7 @@ body {
 }
 
 .thumbnail .caption-full {
-    padding: 9px;
+
     color: #333;
 }
 
@@ -57,9 +57,15 @@ footer {
 .address-btn{
     display: inline;
     width: 76%;
+     margin-bottom: 4px;
 }
 .search-btn{
     display: inline;
     width: 20%;
     float: right;
+    margin-bottom: 4px;
+}
+.date-logo{
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-style: italic;
 }

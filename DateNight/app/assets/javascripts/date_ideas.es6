@@ -80,7 +80,7 @@ function addDate(dateHolder, dateSpot){
                         	<a href = ${dateSpot.url} target="_blank">
                             <img src=${dateSpot.image_url} alt="">
                             <div class="caption">
-                                <h4><a href="#">${dateSpot.name}</a>
+                                <h4>${dateSpot.name}
                                 </h4>
                                 <p class = "review-snippet">${dateSpot.snippet_text}</p>
                             </div>
@@ -90,6 +90,9 @@ function addDate(dateHolder, dateSpot){
                                     <img src = ${dateSpot.rating_img_url_large} alt = "${dateSpot.rating} stars">
                                     <br>
                                		<span class="pull-right">${dateSpot.review_count} reviews</span>
+                               		<br>
+                               		<div>
+                               		More details on <img src = "/assets/yelp-2c.png" class = "yelp-logo"></div>
                                 </p>
                                 
                             </div>

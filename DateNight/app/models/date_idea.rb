@@ -1,8 +1,7 @@
 class DateIdea < ApplicationRecord
 	has_many :date_idea_user
 	has_many :users, through: "date_idea_user"
-	geocoded_by :address
-  	after_validation :geocode
+
 	def self.search(location)
 		Yelp.client.search(location, params)
 	end
